@@ -29,12 +29,12 @@ Admin.prototype.getFunction = function () {
 
 function adminLogout(ctx, keycloak) {
   let data = '';
-  const {request, response} = ctx;
-  request.on('data', d => {
+  const {req, response} = ctx;
+  req.on('data', d => {
     data += d.toString();
   });
 
-  request.on('end', function () {
+  req.on('end', function () {
     let payload;
     let parts = data.split('.');
     try {
@@ -68,13 +68,13 @@ function adminLogout(ctx, keycloak) {
 
 function adminNotBefore(ctx, keycloak) {
   let data = '';
-  const {request, response} = ctx;
+  const {req, response} = ctx;
 
-  request.on('data', d => {
+  req.on('data', d => {
     data += d.toString();
   });
 
-  request.on('end', function () {
+  req.on('end', function () {
     let parts = data.split('.');
     let payload = JSON.parse(Buffer.from(parts[1], 'base64').toString());
     if (payload.action === 'PUSH_NOT_BEFORE') {
