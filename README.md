@@ -3,7 +3,13 @@
 
 ## Install
 ```bash
-$ npm i @anthinkingcoder/keycloak-koa-connect --save
+$ npm i @littlekelvin/keycloak-koa-connect
+```
+
+## publish
+```
+1. npm login
+2. npm publish
 ```
 
 
